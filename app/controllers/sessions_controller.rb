@@ -11,11 +11,9 @@ class SessionsController < ApplicationController
     user = User.find_by_email(params[:email])
     if user&.authenticate(params[:password])
       session[:user_id] = user.id
-      redirect_to root_path, notice: 'Успешный вход!'
+      redirect_to root_path, notice: t('correct')
     else
-      redirect_to login_path, alert: 'Неверная почта или пароль'
-      # flash.now[:alert] = 'Email or password is invalid'
-      # render 'new'
+      redirect_to login_path, alert: t('wrong')
     end
   end
 

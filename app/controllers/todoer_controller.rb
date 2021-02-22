@@ -19,7 +19,7 @@ class TodoerController < ApplicationController
     @task.owner = current_user.id
     @task.is_in_trash = false
     if @task.save
-      redirect_to root_path, notice: 'TODO успешно создан!'
+      redirect_to root_path, notice: t('todo_was_created')
     else
       render 'todoer/add_task'
     end
@@ -36,7 +36,7 @@ class TodoerController < ApplicationController
   def clear_trash
     Task.where(is_in_trash: true).destroy_all
     respond_to do |format|
-      format.html { redirect_to trash_can_path, notice: 'Корзина очищена!' }
+      format.html { redirect_to trash_can_path, notice: t('trash_clean') }
       format.js
     end
   end
@@ -54,7 +54,7 @@ class TodoerController < ApplicationController
   def update
     # if Task.find(params[:id]).update(task_params)
     if @task.update(task_params)
-      redirect_to root_path, notice: 'TODO успешно обновлен!'
+      redirect_to root_path, notice: t('todo_was_updated')
     else
       render 'todoer/edit'
     end

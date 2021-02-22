@@ -1,17 +1,22 @@
 <header id="header_nav">
   <nav class="navbar navbar-expand-lg navbar-light bg-light">
     <a class="navbar-brand" href="<%= root_path %>">TODO</a>
-    <a class="nav-link" href="<%= info_path %>">Что это?</a>
-    <a class="nav-link" href="<%= colleagues_path %>">Все пользователи</a>
+    <a class="nav-link" href="<%= info_path %>"><%= t 'info' %></a>
+    <a class="nav-link" href="<%= colleagues_path %>"><%= t 'users' %></a>
+    <% if I18n.locale == :ru %>
+        <span><%= link_to "EN", { locale: :en }, class: "nav-link" %>
+        <% else %>
+        <%= link_to "RU", { locale: :ru }, class: "nav-link" %>
+        <% end %></span>
     <p class="navbar-text" id="notice"><%= notice %></p>
       <div class="nav-item dropdown">
         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
           <%= current_user.name %>
         </a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-          <a class="dropdown-item" href="<%= user_path(current_user) %>">Информация</a>
-          <a class="dropdown-item" href="<%= edit_user_path(current_user) %>">Редактировать</a>
-          <a class="dropdown-item" href="<%= login_path %>">Выйти</a>
+          <a class="dropdown-item" href="<%= user_path(current_user) %>"><%= t 'about' %></a>
+          <a class="dropdown-item" href="<%= edit_user_path(current_user) %>"><%= t 'user_edit' %></a>
+          <a class="dropdown-item" href="<%= login_path %>"><%= t 'exit' %></a>
         </div>
       </div>
   </nav>

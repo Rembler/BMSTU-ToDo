@@ -9,16 +9,16 @@
       <% else %>
         <td rowspan="4" id="avatar_store"><%= image_tag @user.avatar.url, id: "avatar" %></td>
       <% end %>
-      <td class="caption">Имя:</td>
+      <td class="caption"><%= t 'name' %></td>
     </tr>
     <tr>
       <td class="value"><%= @user.name %></td>
     </tr>
     <tr>
-      <td class="caption">Электронная почта:</td>
+      <td class="caption"><%= t 'email' %>:</td>
     </tr>
     <tr>
-      <td class="value"><%= @user.email %></td>
+      <td class="value"><%= @user.email %>:</td>
     </tr>
   </table>
 </div>

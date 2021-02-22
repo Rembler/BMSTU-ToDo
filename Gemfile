@@ -58,5 +58,7 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 gem 'bcrypt'
 # HTML, CSS and JS library
 gem 'bootstrap'
+# internationalization gem
+gem 'i18n'
 
 gem 'jquery-rails'

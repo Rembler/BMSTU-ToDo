@@ -258,6 +258,7 @@ DEPENDENCIES
   byebug
   capybara (>= 2.15)
   carrierwave
+  i18n
   jbuilder (~> 2.7)
   jquery-rails
   listen (~> 3.2)

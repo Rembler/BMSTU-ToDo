@@ -3,18 +3,10 @@
   <div class="error_div edit_error">
     <% if @task.errors.any? %>
       <div id="error_explanation">
-        <h2>Не удалось создать TODO</h2>
+        <h2><%= t 'fail_todo' %></h2>
         <ul>
           <% @task.errors.full_messages.each do |message| %>
-            <% case message %>
-            <% when "Title can't be blank" %>
-              <% message = "Укажите, что вы хотите добавить" %>
-            <% else %>
-              <% message = nil %>
-            <% end %>
-            <% if message %>
-              <li><%= message %></li>
-            <% end %>
+            <li><%= message %></li>
           <% end %>
         </ul>
       </div>
@@ -22,20 +14,20 @@
   </div>
   <div class="signup_div get_info_div">
       <div class="field">
-        <%= form.text_field :title, placeholder: "Что надо сделать?" %>
+        <%= form.text_field :title, placeholder: t('what_to_do') %>
       </div>
       <div class="field">
-        <%= form.text_field :content, placeholder: "Немного конкретики" %>
+        <%= form.text_field :content, placeholder: t('explanation') %>
       </div>
     <div class="row field">
-      <div id="select_caption">Скрытый TODO?  </div>
+      <div id="select_caption"><%= t 'hidden' %>  </div>
       <%= form.check_box :is_private, :checked => true %>
     </div>
       <div class="field">
-        <%= form.select :group, ["В планах", "В работе"] %>
+        <%= form.select :group, [[t('plans'), "В планах"], [t('in_work'), "В работе"]] %>
       </div>
     <div class="actions">
-      <%= form.submit "Создать TODO" %>
+      <%= form.submit t('create') %>
     </div>
   </div>
 <% end %>
